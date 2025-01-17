@@ -6,132 +6,146 @@
     <title>Lottery Winner Reveal</title>
     <link rel="stylesheet" href="style.css" />
     <style>
+      /* Color Palette */
+      :root {
+        --primary-bg: #f0f4f8; /* Light Grayish Blue */
+        --secondary-bg: #e0e7eb; /* Slightly Darker Grayish Blue */
+        --accent-color: #64b5f6; /* Light Blue */
+        --accent-dark: #1e88e5; /* Darker Blue */
+        --text-primary: #263238; /* Dark Gray */
+        --text-secondary: #546e7a; /* Medium Gray */
+        --success-bg: #a5d6a7; /* Light Green */
+        --success-text: #1b5e20; /* Dark Green */
+        --warning-bg: #ffcc80; /* Light Orange */
+        --warning-text: #ef6c00; /* Dark Orange */
+      }
+
       body {
-        font-family: sans-serif;
+        font-family: "Arial", sans-serif;
         margin: 0;
-        background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+        background-color: var(--primary-bg);
         display: flex;
         flex-direction: column;
         align-items: center;
         min-height: 100vh;
-        font-size: 16px; /* Base font size */
+        color: var(--text-primary);
+        font-size: 16px;
       }
 
       .top-banner {
         width: 100%;
-        background: linear-gradient(to right, #ffcc80, #ffab40);
-        color: #333;
+        background-color: var(--accent-dark);
+        color: #ffffff;
         text-align: center;
-        padding: 1.25em 0; /* Using em for relative sizing */
-        box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.2);
+        padding: 1.5em 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
       .top-banner img {
-        max-width: 90%;
+        max-width: 85%;
         height: auto;
       }
 
       .content-wrapper {
         display: flex;
-        width: 80%;
+        width: 90%;
         max-width: 1200px;
-        margin: 1.25em 0;
+        margin: 1.5em 0;
       }
 
       .sidebar {
         width: 20%;
-        padding: 1.25em;
-        background-color: #fff;
-        border-radius: 0.5em;
-        box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.1);
+        padding: 1.5em;
+        background-color: var(--secondary-bg);
+        border-radius: 0.75em;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
       }
 
       .left-sidebar {
-        margin-right: 1.25em;
+        margin-right: 1.5em;
       }
 
       .right-sidebar {
-        margin-left: 1.25em;
+        margin-left: 1.5em;
       }
 
       .main-content {
         flex-grow: 1;
-        padding: 1.875em;
-        background-color: #fff;
-        border-radius: 0.5em;
-        box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.1);
+        padding: 2em;
+        background-color: #ffffff;
+        border-radius: 0.75em;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         text-align: center;
       }
 
       .timer {
-        font-size: 1.75em;
-        margin-bottom: 1.25em;
-        color: #00bcd4;
-        text-shadow: 0.0625em 0.0625em 0.125em rgba(0, 0, 0, 0.1);
-        display: flex; /* Enable flexbox for timer elements */
-        justify-content: center; /* Center items horizontally */
-        align-items: center; /* Center items vertically */
-        flex-wrap: wrap; /* Allow items to wrap to the next line */
+        font-size: 2em;
+        margin-bottom: 1.5em;
+        color: var(--accent-dark);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
       }
 
       .timer span {
-        margin-right: 0.4em; /* Reduced right margin */
-        padding: 0.4em 0.6em; /* Reduced padding */
-        background-color: #bbdefb;
-        border-radius: 0.3125em;
-        color: #1a237e;
-        margin-bottom: 0.2em; /* Add bottom margin for spacing when wrapped */
+        margin-right: 0.5em;
+        padding: 0.5em 0.75em;
+        background-color: var(--accent-color);
+        border-radius: 0.5em;
+        color: white;
+        margin-bottom: 0.3em;
       }
 
       .winner-section {
-        margin-bottom: 1.875em;
+        margin-bottom: 2em;
       }
 
       .winner {
-        margin-bottom: 0.9375em;
-        padding: 1.25em;
-        background-color: #e8f5e9;
-        border: 1px solid #c8e6c9;
-        border-radius: 0.5em;
-        box-shadow: 0 0.0625em 0.1875em rgba(0, 0, 0, 0.1);
+        margin-bottom: 1.5em;
+        padding: 1.5em;
+        background-color: var(--success-bg);
+        border: 2px solid var(--success-text);
+        border-radius: 0.75em;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       }
 
       .winner h3 {
-        color: #388e3c;
+        color: var(--success-text);
         margin-top: 0;
-        font-size: 1.2em;
+        font-size: 1.3em;
       }
 
       .adsterra-ad {
-        margin-bottom: 1.25em;
+        margin-bottom: 1.5em;
         text-align: center;
+        background-color: var(--warning-bg);
+        padding: 1em;
+        border-radius: 0.5em;
       }
 
-      /* --- Responsive Design with Font and Spacing Adjustments --- */
-
-      /* For screens smaller than 1200px (large tablets and desktops) */
       @media (max-width: 1199px) {
         body {
           font-size: 15px;
         }
         .content-wrapper {
-          width: 90%;
+          width: 95%;
         }
       }
 
-      /* For screens smaller than 1024px (tablets) */
       @media (max-width: 1023px) {
         body {
           font-size: 14px;
         }
         .content-wrapper {
           flex-direction: column;
-          width: 95%;
+          width: 100%;
         }
         .sidebar {
           width: 100%;
-          margin: 0 0 1.25em 0;
-          padding: 1em;
+          margin: 0 0 1.5em 0;
+          padding: 1.2em;
         }
         .left-sidebar {
           margin-right: 0;
@@ -144,33 +158,30 @@
         }
       }
 
-      /* For screens smaller than 768px (mobile phones) */
       @media (max-width: 767px) {
         body {
           font-size: 13px;
         }
         .timer {
-          font-size: 1.6em; /* Slightly reduce font size */
-          flex-direction: column; /* Stack timer elements vertically */
-          align-items: center; /* Center them when stacked */
+          font-size: 1.8em;
+          flex-direction: column;
+          align-items: center;
         }
         .timer span {
-          margin-right: 0; /* Remove right margin when stacked */
-          margin-bottom: 0.4em; /* Add more bottom margin */
-          padding: 0.3em 0.5em; /* Further reduce padding */
+          margin-right: 0;
+          margin-bottom: 0.5em;
         }
         .main-content {
-          padding: 1em;
+          padding: 1.2em;
         }
         .winner {
-          padding: 1em;
+          padding: 1.2em;
         }
         .winner h3 {
-          font-size: 1.1em;
+          font-size: 1.2em;
         }
       }
 
-      /* For very small screens */
       @media (max-width: 500px) {
         body {
           font-size: 12px;
