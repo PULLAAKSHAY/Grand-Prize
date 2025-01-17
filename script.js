@@ -19,10 +19,12 @@ function startTimer(targetDate) {
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      daysElement.textContent = String(days).padStart(2, "0");
-      hoursElement.textContent = String(hours).padStart(2, "0");
-      minutesElement.textContent = String(minutes).padStart(2, "0");
-      secondsElement.textContent = String(seconds).padStart(2, "0");
+      // Update function for the timer
+      // Format and append the appropriate letter to each value
+      daysElement.textContent = `${String(days).padStart(2, "0")}d`;
+      hoursElement.textContent = `${String(hours).padStart(2, "0")}h`;
+      minutesElement.textContent = `${String(minutes).padStart(2, "0")}m`;
+      secondsElement.textContent = `${String(seconds).padStart(2, "0")}s`;
     } else {
       clearInterval(timerInterval);
       timerDisplay.textContent = "Winners Announced!"; // Update the timer element directly
