@@ -1,8 +1,11 @@
+let timerInterval; // Declare timerInterval in a scope accessible to both functions
+
 function startTimer(targetDate) {
   const daysElement = document.getElementById("days");
   const hoursElement = document.getElementById("hours");
   const minutesElement = document.getElementById("minutes");
   const secondsElement = document.getElementById("seconds");
+  const timerDisplay = document.getElementById("timer"); // Get the timer element
 
   function updateTimer() {
     const now = new Date().getTime();
@@ -22,18 +25,18 @@ function startTimer(targetDate) {
       secondsElement.textContent = String(seconds).padStart(2, "0");
     } else {
       clearInterval(timerInterval);
-      document.getElementById("timer").textContent = "Winners Announced!";
-      // Here you would potentially update the winner names dynamically (see note below)
-      document.getElementById("winner1").textContent = "Winner Name 1"; // Replace with actual winner
-      document.getElementById("winner2").textContent = "Winner Name 2"; // Replace with actual winner
-      document.getElementById("winner3").textContent = "Winner Name 3"; // Replace with actual winner
+      timerDisplay.textContent = "Winners Announced!"; // Update the timer element directly
+      document.getElementById("winner1").textContent = "Winner Name 1";
+      document.getElementById("winner2").textContent = "Winner Name 2";
+      document.getElementById("winner3").textContent = "Winner Name 3";
     }
   }
 
   updateTimer(); // Initial call to set the timer immediately
-  const timerInterval = setInterval(updateTimer, 1000);
+  timerInterval = setInterval(updateTimer, 1000);
 }
 
 // Set the target date and time for the winner reveal (Year, Month (0-11), Day, Hour, Minute, Second)
-const revealTime = new Date(2024, 10, 20, 15, 0, 0); // Example: November 20, 2024, 3:00 PM
+// Set this to a future date and time! For example, August 28th, 2024, at 10:00 AM
+const revealTime = new Date(2025, 0, 28, 10, 0, 0);
 startTimer(revealTime);
