@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lottery Winner Reveal</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        font-size: 16px; /* Base font size */
+      }
+
+      .top-banner {
+        width: 100%;
+        background: linear-gradient(to right, #ffcc80, #ffab40);
+        color: #333;
+        text-align: center;
+        padding: 1.25em 0; /* Using em for relative sizing */
+        box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.2);
+      }
+
+      .top-banner img {
+        max-width: 90%;
+        height: auto;
+      }
+
+      .content-wrapper {
+        display: flex;
+        width: 80%;
+        max-width: 1200px;
+        margin: 1.25em 0;
+      }
+
+      .sidebar {
+        width: 20%;
+        padding: 1.25em;
+        background-color: #fff;
+        border-radius: 0.5em;
+        box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.1);
+      }
+
+      .left-sidebar {
+        margin-right: 1.25em;
+      }
+
+      .right-sidebar {
+        margin-left: 1.25em;
+      }
+
+      .main-content {
+        flex-grow: 1;
+        padding: 1.875em;
+        background-color: #fff;
+        border-radius: 0.5em;
+        box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .timer {
+        font-size: 1.75em;
+        margin-bottom: 1.25em;
+        color: #00bcd4;
+        text-shadow: 0.0625em 0.0625em 0.125em rgba(0, 0, 0, 0.1);
+        display: flex; /* Enable flexbox for timer elements */
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+        flex-wrap: wrap; /* Allow items to wrap to the next line */
+      }
+
+      .timer span {
+        margin-right: 0.4em; /* Reduced right margin */
+        padding: 0.4em 0.6em; /* Reduced padding */
+        background-color: #bbdefb;
+        border-radius: 0.3125em;
+        color: #1a237e;
+        margin-bottom: 0.2em; /* Add bottom margin for spacing when wrapped */
+      }
+
+      .winner-section {
+        margin-bottom: 1.875em;
+      }
+
+      .winner {
+        margin-bottom: 0.9375em;
+        padding: 1.25em;
+        background-color: #e8f5e9;
+        border: 1px solid #c8e6c9;
+        border-radius: 0.5em;
+        box-shadow: 0 0.0625em 0.1875em rgba(0, 0, 0, 0.1);
+      }
+
+      .winner h3 {
+        color: #388e3c;
+        margin-top: 0;
+        font-size: 1.2em;
+      }
+
+      .adsterra-ad {
+        margin-bottom: 1.25em;
+        text-align: center;
+      }
+
+      /* --- Responsive Design with Font and Spacing Adjustments --- */
+
+      /* For screens smaller than 1200px (large tablets and desktops) */
+      @media (max-width: 1199px) {
+        body {
+          font-size: 15px;
+        }
+        .content-wrapper {
+          width: 90%;
+        }
+      }
+
+      /* For screens smaller than 1024px (tablets) */
+      @media (max-width: 1023px) {
+        body {
+          font-size: 14px;
+        }
+        .content-wrapper {
+          flex-direction: column;
+          width: 95%;
+        }
+        .sidebar {
+          width: 100%;
+          margin: 0 0 1.25em 0;
+          padding: 1em;
+        }
+        .left-sidebar {
+          margin-right: 0;
+        }
+        .right-sidebar {
+          margin-left: 0;
+        }
+        .main-content {
+          padding: 1.5em;
+        }
+      }
+
+      /* For screens smaller than 768px (mobile phones) */
+      @media (max-width: 767px) {
+        body {
+          font-size: 13px;
+        }
+        .timer {
+          font-size: 1.6em; /* Slightly reduce font size */
+          flex-direction: column; /* Stack timer elements vertically */
+          align-items: center; /* Center them when stacked */
+        }
+        .timer span {
+          margin-right: 0; /* Remove right margin when stacked */
+          margin-bottom: 0.4em; /* Add more bottom margin */
+          padding: 0.3em 0.5em; /* Further reduce padding */
+        }
+        .main-content {
+          padding: 1em;
+        }
+        .winner {
+          padding: 1em;
+        }
+        .winner h3 {
+          font-size: 1.1em;
+        }
+      }
+
+      /* For very small screens */
+      @media (max-width: 500px) {
+        body {
+          font-size: 12px;
+        }
+        .top-banner {
+          padding: 1em 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top-banner">
+      <img src="./img.png" alt="Ticket Lottery Poster" />
+    </header>
+
+    <div class="content-wrapper">
+      <aside class="sidebar left-sidebar">
+        <div class="adsterra-ad">
+          <script>
+            document.write(
+              '<div align="center">[Adsterra Left Sidebar Code Placeholder]</div>'
+            );
+          </script>
+        </div>
+        <div class="adsterra-ad">
+          <script>
+            document.write(
+              '<div align="center">[Adsterra Left Sidebar Code Placeholder 2]</div>'
+            );
+          </script>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <h1>Lottery Winner Reveal</h1>
+
+        <div id="timer" class="timer">
+          <span>Time Remaining:</span>
+          <span id="days">00d</span>
+          <span id="hours">00h</span>
+          <span id="minutes">00m</span>
+          <span id="seconds">00s</span>
+        </div>
+
+        <div class="winner-section">
+          <h2>Winners:</h2>
+          <div class="winner">
+            <h3>Winner 1:</h3>
+            <p id="winner1">To be announced...</p>
+          </div>
+          <div class="winner">
+            <h3>Winner 2:</h3>
+            <p id="winner2">To be announced...</p>
+          </div>
+          <div class="winner">
+            <h3>Winner 3:</h3>
+            <p id="winner3">To be announced...</p>
+          </div>
+        </div>
+      </main>
+
+      <aside class="sidebar right-sidebar">
+        <div class="adsterra-ad">
+          <script>
+            document.write(
+              '<div align="center">[Adsterra Right Sidebar Code Placeholder]</div>'
+            );
+          </script>
+        </div>
+        <div class="adsterra-ad">
+          <script>
+            document.write(
+              '<div align="center">[Adsterra Right Sidebar Code Placeholder 2]</div>'
+            );
+          </script>
+        </div>
+      </aside>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
