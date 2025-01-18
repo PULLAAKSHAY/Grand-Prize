@@ -43,25 +43,25 @@ function startTimer(targetDate) {
 const revealTime = new Date(2025, 0, 28, 10, 0, 0);
 startTimer(revealTime);
 
-document.addEventListener("DOMContentLoaded", function () {
-  const adPlaceholder = document.getElementById("ad-placeholder-1");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const adPlaceholder = document.getElementById("ad-placeholder-1");
 
-  if (adPlaceholder) {
-    window.atOptions = {
-      // Define atOptions globally
-      key: "33c55326a4d8ecdd97abfe84b2a291ee",
-      format: "iframe",
-      height: 250,
-      width: 300,
-      params: {},
-    };
+//   if (adPlaceholder) {
+//     window.atOptions = {
+//       // Define atOptions globally
+//       key: "33c55326a4d8ecdd97abfe84b2a291ee",
+//       format: "iframe",
+//       height: 250,
+//       width: 300,
+//       params: {},
+//     };
 
-    const protocol = window.location.protocol === "https:" ? "s" : "";
-    const adScript = document.createElement("script");
-    adScript.type = "text/javascript";
-    adScript.src = `http${protocol}://www.highperformanceformat.com/33c55326a4d8ecdd97abfe84b2a291ee/invoke.js`;
+//     const protocol = window.location.protocol === "https:" ? "s" : "";
+//     const adScript = document.createElement("script");
+//     adScript.type = "text/javascript";
+//     adScript.src = `http${protocol}://www.highperformanceformat.com/33c55326a4d8ecdd97abfe84b2a291ee/invoke.js`;
 
-    adPlaceholder.innerHTML = "";
-    adPlaceholder.appendChild(adScript);
-  }
-});
+//     adPlaceholder.innerHTML = "";
+//     adPlaceholder.appendChild(adScript);
+//   }
+// });
