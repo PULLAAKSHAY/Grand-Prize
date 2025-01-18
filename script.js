@@ -43,34 +43,34 @@ function startTimer(targetDate) {
 const revealTime = new Date(2025, 0, 28, 10, 0, 0);
 startTimer(revealTime);
 
-document.addEventListener("DOMContentLoaded", function () {
-  // 1. Get a reference to the <p> element
-  const paragraphElement = document.getElementById("ad-paragraph");
+// document.addEventListener("DOMContentLoaded", function () {
+//   // 1. Get a reference to the <p> element
+//   const paragraphElement = document.getElementById("ad-paragraph");
 
-  // 2. Check if the <p> element exists
-  if (paragraphElement) {
-    // 3. Create the iframe element
-    const iframe = document.createElement("iframe");
+//   // 2. Check if the <p> element exists
+//   if (paragraphElement) {
+//     // 3. Create the iframe element
+//     const iframe = document.createElement("iframe");
 
-    // 4. Set iframe attributes (adjust width and height as needed)
-    iframe.width = "300";
-    iframe.height = "250";
-    // iframe.frameBorder = "0"; // Optional
-    // iframe.scrolling = "no";   // Optional
+//     // 4. Set iframe attributes (adjust width and height as needed)
+//     iframe.width = "300";
+//     iframe.height = "250";
+//     // iframe.frameBorder = "0"; // Optional
+//     // iframe.scrolling = "no";   // Optional
 
-    // 5. Clear any existing content in the paragraph (optional)
-    paragraphElement.innerHTML = "";
+//     // 5. Clear any existing content in the paragraph (optional)
+//     paragraphElement.innerHTML = "";
 
-    // 6. Append the iframe to the paragraph
-    paragraphElement.appendChild(iframe);
+//     // 6. Append the iframe to the paragraph
+//     paragraphElement.appendChild(iframe);
 
-    // 7. Create and append the invoke.js script to the iframe's contentWindow
-    const script = iframe.contentWindow.document.createElement("script");
-    script.src =
-      "//www.highperformanceformat.com/33c55326a4d8ecdd97abfe84b2a291ee/invoke.js";
+//     // 7. Create and append the invoke.js script to the iframe's contentWindow
+//     const script = iframe.contentWindow.document.createElement("script");
+//     script.src =
+//       "//www.highperformanceformat.com/33c55326a4d8ecdd97abfe84b2a291ee/invoke.js";
 
-    iframe.contentWindow.document.body.appendChild(script);
-  } else {
-    console.error("Paragraph element not found!");
-  }
-});
+//     iframe.contentWindow.document.body.appendChild(script);
+//   } else {
+//     console.error("Paragraph element not found!");
+//   }
+// });
