@@ -43,25 +43,28 @@ function startTimer(targetDate) {
 const revealTime = new Date(2025, 0, 28, 10, 0, 0);
 startTimer(revealTime);
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const adPlaceholder = document.getElementById("ad-placeholder-1");
+document.addEventListener("DOMContentLoaded", function () {
+  // 1. Get a reference to the <p> element
+  const paragraphElement = document.getElementById("ad-paragraph");
+  // 2. Check if the <p> element exists
+  if (paragraphElement) {
+    // 3. Create the iframe element
+    const iframe = document.createElement("iframe");
 
-//   if (adPlaceholder) {
-//     window.atOptions = {
-//       // Define atOptions globally
-//       key: "33c55326a4d8ecdd97abfe84b2a291ee",
-//       format: "iframe",
-//       height: 250,
-//       width: 300,
-//       params: {},
-//     };
+    // 4. Set the iframe attributes (replace with your actual Adsterra iframe code details)
+    iframe.src =
+      "//www.highperformanceformat.com/33c55326a4d8ecdd97abfe84b2a291ee/invoke.js";
+    iframe.width = "300";
+    iframe.height = "250";
+    // iframe.frameBorder = "0";
+    // iframe.scrolling = "no";
 
-//     const protocol = window.location.protocol === "https:" ? "s" : "";
-//     const adScript = document.createElement("script");
-//     adScript.type = "text/javascript";
-//     adScript.src = `http${protocol}://www.highperformanceformat.com/33c55326a4d8ecdd97abfe84b2a291ee/invoke.js`;
+    // 5. Clear any existing content in the paragraph (optional)
+    paragraphElement.innerHTML = "";
 
-//     adPlaceholder.innerHTML = "";
-//     adPlaceholder.appendChild(adScript);
-//   }
-// });
+    // 6. Append the iframe to the paragraph
+    paragraphElement.appendChild(iframe);
+  } else {
+    console.error("Paragraph element not found!");
+  }
+});
