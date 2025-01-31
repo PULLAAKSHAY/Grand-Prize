@@ -28,9 +28,9 @@ function startTimer(targetDate) {
     } else {
       clearInterval(timerInterval);
       timerDisplay.textContent = "Winners Announced!"; // Update the timer element directly
-      document.getElementById("winner1").textContent = "Winner Name 1";
-      document.getElementById("winner2").textContent = "Winner Name 2";
-      document.getElementById("winner3").textContent = "Winner Name 3";
+      document.getElementById("winner1").textContent = "Venkateswara Rao";
+      document.getElementById("winner2").textContent = "Bhavani";
+      document.getElementById("winner3").textContent = "Aaditya";
     }
   }
 
